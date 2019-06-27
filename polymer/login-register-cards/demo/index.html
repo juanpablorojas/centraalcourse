@@ -26,13 +26,21 @@
       <h3>Basic login-register demo</h3>
       <demo-snippet>
           <login-register id="logInRegisterTemplate"></login-register>
-          <card-wrapper-component></card-wrapper-component>
+          <card-wrapper-component id="cardWrapperTemplate"></card-wrapper-component>
       </demo-snippet>
     </div>
     <script>
       document.addEventListener('logIn', (event) => {
-        return 0;
+        cardWrapperTemplate.classList.toggle('hidden');
+        logInRegisterTemplate.classList.toggle('hidden');
       });
+
+      function setUp() {
+        let logInRegisterTemplate = document.getElementById('logInRegisterTemplate');
+        let cardWrapperTemplate = document.getElementById('cardWrapperTemplate');
+        cardWrapperTemplate.classList.toggle('hidden');
+      }
+      setUp();
     </script>
   </body>
 </html>
