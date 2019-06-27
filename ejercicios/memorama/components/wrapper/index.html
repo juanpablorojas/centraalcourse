@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="import" href="../card/index.html" />
+    <style>
+      body {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <template id="gameCard">
+      <game-card></game-card>
+    </template>
+    <template id="background">
+      <style>
+        .main__background {
+          background-image: url("./components/wrapper/assets/fondo.jpg");
+          padding: 20px;
+          height: 100vh;
+        }
+        span,
+        p {
+          display: inline-block;
+        }
+        .game__background {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          flex-wrap: wrap;
+        }
+        .title {
+          border-radius: 10px;
+          display: inline-block;
+          background: white;
+          padding: 5px;
+          margin-bottom: 5px;
+        }
+        h2 {
+          margin: 0;
+        }
+      </style>
+      <div class="main__background">
+        <div class="title">
+          <h2>Memorama</h2>
+          <div class="indicator__group">
+            <p>Grupos:</p>
+            <span>x</span>
+          </div>
+          <div class="indicator__group">
+            <p>Cartas por Grupo:</p>
+            <span>y</span>
+          </div>
+        </div>
+        <div id="gameBackground" class="game__background"></div>
+      </div>
+    </template>
+    <template id="greetings">
+      <style>
+        .greetings__background {
+          padding: 20px;
+          margin: 0 auto;
+          background: transparent;
+        }
+        h2 {
+          text-align: center;
+        }
+      </style>
+      <div class="greetings__background">
+        <h2>Ganaste Felicidades!</h2>
+      </div>
+    </template>
+    <script src="./script.js"></script>
+  </body>
+</html>

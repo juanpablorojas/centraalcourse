@@ -1,0 +1,36 @@
+<link
+  rel="import"
+  href="../../../bower_components/polymer/polymer-element.html"
+/>
+
+<dom-module id="get-users-component">
+    <template>
+    </template>
+    <script>
+        class GetUsersComponent extends Polymer.Element {
+            serviceUrl = 'https://randomuser.me/api/?results=10';
+            static get is() {
+                return  'get-users-component';
+            }
+            connectedCallback() {
+                super.connectedCallback();
+                this.getData();
+            }
+            getData() {
+                this.usersData = fetch(this.serviceUrl).then((data) => {
+                    return data.json();
+                }).then(final => {
+                    this.event = new CustomEvent('users-data', {
+                        bubbles: true,
+                        detail: {
+                            data: final.results
+                        },
+                        composed: true
+                    });
+                    this.dispatchEvent(this.event);
+                });
+            }
+        }
+        window.customElements.define(GetUsersComponent.is, GetUsersComponent);
+    </script>
+</dom-module>

@@ -1,0 +1,40 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+
+<link rel="import" href="../components/card-component/card-component.html">
+<link rel="import" href="../components/card-wrapper-component/card-wrapper-component.html">
+<link rel="import" href="../components/get-users-component/get-users-component.html">
+
+<dom-module id="cards-login-app">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <card-wrapper-component></card-wrapper-component>
+    <!--<get-users-component></get-users-component>-->
+  </template>
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class CardsLoginApp extends Polymer.Element {
+      static get is() { return 'cards-login-app'; }
+      static get properties() {
+        return {
+          person: {
+            type: Object,
+            value: {
+              name: 'aline',
+              gender: "female",
+            }
+          }
+        };
+      }
+    }
+
+    window.customElements.define(CardsLoginApp.is, CardsLoginApp);
+  </script>
+</dom-module>

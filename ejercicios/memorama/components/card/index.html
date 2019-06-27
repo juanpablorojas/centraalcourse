@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style></style>
+  </head>
+  <body>
+    <template id="main">
+      <style>
+        button {
+          padding: 0;
+          outline: none;
+          border-radius: 12px;
+          background: transparent;
+        }
+        button:hover {
+          cursor: pointer;
+        }
+      </style>
+      <button id="button"></button>
+    </template>
+    <template id="hiddenTemplate">
+      <style>
+        .card__hidden {
+          width: 80px;
+          height: 150px;
+          background-image: url("./components/card/assets/hiddenCover.jpg");
+          background-size: cover;
+          border-radius: 10px;
+          padding: 5px 10px;
+          border: 1px solid black;
+        }
+      </style>
+      <div class="card__hidden"></div>
+    </template>
+    <template id="showTemplate">
+      <style>
+        .card__show {
+          width: 80px;
+          height: 150px;
+          border-radius: 10px;
+          padding: 5px 10px;
+          border: 1px solid black;
+          background: white;
+        }
+      </style>
+      <div class="card__show">
+        <p id="anverse">Mensaje</p>
+      </div>
+    </template>
+    <template id="outGameTemplate">
+      <style>
+        .outGame__card {
+          width: 80px;
+          height: 150px;
+          border-radius: 10px;
+          padding: 5px 10px;
+          border: 1px solid white;
+          background: transparent
+        }
+      </style>
+      <div class="outGame__card">
+      </div>
+    </template>
+    <script src="./script.js"></script>
+  </body>
+</html>

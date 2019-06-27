@@ -1,0 +1,59 @@
+<!-- agregar html 5 como actual -->
+<!--@import en styles -->
+<!--html semántico-->
+<!--fallback values -->
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Google Chrome</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="main__container">
+      <div class="main__container__header__container">
+        <div class="main__container__header__eyelash__container">
+          <div class="main__container__header__eyelash__container__windowActions">
+            <button class="main__container__header__eyelash__container__windowActions__item">
+              <span class="icon-cross"></span>
+            </button>
+            <button class="main__container__header__eyelash__container__windowActions__item">
+              <span class="icon-minus"></span>
+            </button>
+            <button class="main__container__header__eyelash__container__windowActions__item">
+              <span class="icon-enlarge2"></span>
+            </button>
+          </div>
+          <div id="main__container__header__eyelash__container__tabs__container" class="main__container__header__eyelash__container__tabs__container">
+            <!--
+            <div id="tabLayout" class="main__container__header__eyelash__container__tabs_container__tab active">
+              <div class="favicon"></div>
+              <div class="title"></div>
+              <div class="action">
+                <button onclick="closeTab(event);">
+                  <span class="icon-cross"></span>
+                </button>
+              </div>
+            </div>
+          -->
+            <div  id="main__container__heder__eyelash__container__tabs_container_action" class="main__container__heder__eyelash__container__tabs_container_action">
+              <button onclick="newTab();" class="tab__close">
+                <span class="icon-plus"></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="main__container__header__searchBox__container"></div>
+      </div>
+      <div class="main__container__body__container">
+        <div id="content" class="main__container__body__container__content">
+
+        </div>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,117 @@
+html {
+    height: 100%;
+}
+:root {
+    --linkColor: #FFF;
+    --headerColor: #3F51B5;
+    --maxWidth: 100%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    background-color: var(--headerColor);
+}
+header div {
+    display: inline-block;
+}
+.header_navigation__menu {
+    display: flex;
+}
+.contenido__sideNav {
+    background-color: white;
+    position: fixed;
+    height: 100px;
+    right: -82px;
+    padding: 10px 5px;
+    box-shadow:5px 2px 2px black;
+    border-radius: 5px;
+    transition: all;
+    transition-duration: 1s;
+}
+.contenido__sideNav.active {
+    right: 0;
+}
+.header__menu_mobile_button .points {
+    transition: all 0.7s;
+}
+.header__menu_mobile_button .points.active {
+    transform: rotate(90deg);
+}
+.header__navigation__nav {
+    display: flex;
+    min-width: 300px;
+}
+.contenido__drag  {
+    height: 100px;
+    width: 100%;
+    border: 1px solid red;
+    margin-bottom: 20px;
+}
+.header__navigation__nav ul {
+    padding: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+body {
+    margin: 0;
+    height: 100%;
+}
+.header__navigation__nav ul li {
+    display: inline-block;
+}
+.header__navigation__nav ul li a {
+    color: var(--linkColor);
+    text-decoration: none;
+    font-size: 20px;
+    padding-bottom: 3px;
+}
+.header__login__button {
+    padding: 5px 15px;
+    background-color: #efefef;
+    border-radius: 3px;
+    font-size: 14px;
+    outline: none;
+}
+.header__login__button:hover {
+    background-color: lightblue;
+}
+.header__login__button span {
+    margin: 0;
+    padding: 0;
+}
+.header__logo img {
+
+}
+.header__navigation__nav ul li a:hover {
+    border-bottom: 1px solid aliceblue;
+    color: aliceblue;
+}
+
+@media screen and (max-width: 768px) {
+    .desktop {
+        display: none;
+    }
+    .mobile {
+        display: block;
+    }
+}
+@media screen and (min-width: 769px) {
+    .mobile {
+        display: none;
+    }
+    .desktop {
+        display: block;
+    }
+}
+.contenido {
+    height: 100%;
+    background-color: lightblue;
+    position: relative;
+}
+h2 {
+    margin: 0;
+}

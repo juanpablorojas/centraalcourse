@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./script.js"></script>
+    <script src="./../ejercicios/1.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="header__logo">
+        <img width="60px" src="./assets/bbva.jpg" alt="" />
+      </div>
+      <div class="header__menu_mobile mobile">
+        <button
+          onclick="action(event)"
+          class="header__menu_mobile_button"
+          id="mobile__menu"
+        >
+          <img id="points" class="points" width="30px" src="./assets/points.png" alt="" />
+        </button>
+      </div>
+      <div class="header__navigation desktop">
+        <nav class="header__navigation__nav">
+          <ul>
+            <li><a href="DireccionPagina">Home</a></li>
+
+            <li><a href="DireccionPagina">Nosotros</a></li>
+
+            <li><a href="DireccionPagina">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="header_login desktop">
+        <button class="header__login__button"><span>Login</span></button>
+      </div>
+    </header>
+    <div class="contenido">
+      <div class="contenido__sideNav mobile" id="sideNav">
+        <h3>SideNav</h3>
+        <button id="">
+
+        </button>
+      
+      
+      
+      
+      </div>
+      <div class="contenido__content">
+        <h2>Contenido de la página</h2>
+        <div class="drag">
+          <div class="contenido__drag">
+            <h2 id="drag" draggable="true" ondragstart="dragStart(event);">Drageable</h2>
+          </div>
+          <div id="destiny" ondragover="dragEfect(event);" class="contenido__drag" ondrop="dropEnd(event);">
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

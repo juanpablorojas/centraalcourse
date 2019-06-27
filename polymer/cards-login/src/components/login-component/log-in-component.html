@@ -1,0 +1,22 @@
+<link
+  rel="import"
+  href="../../../bower_components/polymer/polymer-element.html"
+/>
+
+<dom-module>
+    <template id="log-in-component">
+        <h3>lOGiN</h3>
+    </template>
+    <script>
+        class LogInComponent extends Polymer.Element {
+            serviceUrl = 'https://randomuser.me/api/?results=10';
+            static get is() {
+                return 'log-in-component';
+            }
+            constructor() {
+                super();
+            }
+        }
+        window.customElements.define(LogInComponent.is, LogInComponent);
+    </script>
+</dom-module>

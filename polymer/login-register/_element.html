@@ -1,0 +1,36 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="login-register">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]!</h2>
+  </template>
+
+  <script>
+    /**
+     * `login-register`
+     * Element showing register and login template  with the same data
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class LoginRegister extends Polymer.Element {
+      static get is() { return 'login-register'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'login-register'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(LoginRegister.is, LoginRegister);
+  </script>
+</dom-module>

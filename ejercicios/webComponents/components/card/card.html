@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <template id="card-template">
+      <style>
+        .inner__card {
+          display: flex;
+          border-radius: 5px;
+          border: 1px solid #000;
+          padding: 5px;
+          margin-bottom: 10px;
+        }
+        .label {
+          display: inline-block;
+          margin: 0;
+        }
+        .data__image {
+          margin-left: 10px;
+        }
+        div[class*="container"] {
+          margin-bottom: 10px;
+        }
+        div[class*="container"]:last-child {
+          margin-bottom: 0;
+        }
+      </style>
+      <div class="inner__card">
+        <div class="image">
+          <slot class="profile__image" name="profile_image"></slot>
+        </div>
+        <div class="data__image">
+          <div class="name__container">
+              <p class="label">Nombre Completo:&nbsp;</p>
+              <slot name="name"></slot>
+          </div>
+          <div class="gender__container">
+            <p class="label">Género:&nbsp;</p><slot name="gender"></slot>
+          </div>
+        </div>
+      </div>
+    </template>
+    <template> </template>
+    <script src="./card.js"></script>
+  </body>
+</html>

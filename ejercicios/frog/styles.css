@@ -1,0 +1,17 @@
+.main {
+    display: block;
+}
+.rocks__space {
+    display: flex;
+    justify-content: space-around
+}
+img {
+    margin: 0 auto;
+}
+rock-element {
+    display: inline-block;
+}
+wrapper-element  {
+    display: flex;
+    justify-content: space-around;
+}

@@ -1,0 +1,5 @@
+{
+    "vscode_custom_css.imports": ["file:///Users/juanpablorojas/Desktop/synthwave84.css"],
+    "vscode_custom_css.policy": true,
+    "workbench.colorTheme": "SynthWave '84",
+}

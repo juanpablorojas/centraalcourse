@@ -1,0 +1,6 @@
+{
+  "name": "cards-login",
+  "short_name": "cards-login",
+  "start_url": "/",
+  "display": "standalone"
+}
