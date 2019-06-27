@@ -1,0 +1,170 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="./bower_components/paper-input/paper-input.html">
+
+<dom-module id="login-register">
+  <template>
+    <template id="logInTemplate" is="dom-if" if="[[logIn]]">
+      <style>
+        :host {
+          display: block;
+        }
+        .main__container {
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+        .header {
+          display: flex;
+          flex-direction: column;
+        }
+        .section {
+          display: flex;
+          flex-direction: column
+        }
+        input {
+          display: block;
+          margin-bottom: 15px;
+          outline: none;
+          text-align: center;
+        }
+        button {
+          margin-top: 10px;
+          width: 100%;
+          height: 30px;
+        }
+      </style>
+      <div class="main__container">
+        <div class="header">
+          <h3>Login page.</h3> 
+          <p>Please login to access.</p>
+        </div>
+        <div class="section">
+          <form action="">
+            <paper-input placeholder="email" value="[[email]]" type="email" ></paper-input>
+            <paper-input placeholder="password" value="[[password]]" type="password" ></paper-input>
+            <button on-click="logInAction" type="button">Log me In!</button>
+          </form>
+        </div>
+        <div class="footer">
+          <div class="left__content"></div>
+          <div class="right__content"></div>
+        </div>
+      </div>
+    </template>
+    <template id="registerTemplate" is="dom-if" if="[[!logIn]]">
+        <style>
+            :host {
+              display: block;
+            }
+            .main__container {
+              text-align: center;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+            }
+            .header {
+              display: flex;
+              flex-direction: column;
+            }
+            .section {
+              display: flex;
+              flex-direction: column
+            }
+            input {
+              display: block;
+              margin-bottom: 15px;
+              outline: none;
+              text-align: center;
+              margin: 10px auto;
+            }
+            button {
+              margin-top: 10px;
+              width: 100%;
+              height: 30px;
+            }
+            .password__advice__text {
+              font-size: 12px;
+            }
+          </style>
+      <div class="main__container">
+        <div class="header">
+          <h3>Register</h3>
+          <p>Please provide the following data to register</p>
+        </div>
+        <div class="section">
+          <form action="#">
+              <paper-input placeholder="email" id="registerEmail" type="email"></paper-input>
+              <paper-input placeholder="password" id="registerPassword"></paper-input>
+              <paper-input placeholder="repeat password" id="registerPasswordConfirm"></paper-input>
+              <button id="registerButton" type="button" on-click="register">Register</button>
+          </form>
+          <template id="passwordAdvice" is="dom-if" if="[[passwordAdvice]]">
+            <div class="password__advice">
+              <p class="password__advice__text">Las contaseñas no coinciden</p>
+            </div>
+          </template>
+        </div>
+      </div>
+    </template>
+  </template>
+  <script>
+    /**
+     * `login-register`
+     * Element showing register and login template  with the same data
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class LoginRegister extends Polymer.Element {
+
+      static get is() { return 'login-register'; }
+
+      static get properties() {
+        return {
+          logIn: {
+            type: Boolean,
+            value: false,
+          },
+          email: {
+            type: String,
+            value: 'default',
+          },
+          password: {
+            type: String,
+            value: '',
+          },
+          passwordAdvice: {
+            type: Boolean,
+            value: false,
+          },
+        };
+      }
+
+      register() {
+        this.email = this.shadowRoot.getElementById('registerEmail').value;
+        this.password = this.shadowRoot.getElementById('registerPassword').value;
+        if (this.validatePassword()) {
+          this.logIn = true;
+          return;
+        }
+        this.passwordAdvice = true;
+      }
+
+      validatePassword() {
+        this.passwordConfirm = this.shadowRoot.getElementById('registerPasswordConfirm').value;
+        if (this.passwordConfirm === this.password) {
+          return true;
+        }
+        return false;
+      }
+
+    }
+
+    window.customElements.define(LoginRegister.is, LoginRegister);
+
+  </script>
+</dom-module>

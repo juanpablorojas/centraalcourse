@@ -1,0 +1,97 @@
+<link
+  rel="import"
+  href="../../bower_components/polymer/polymer-element.html"
+/>
+<link
+  rel="import"
+  href="../../bower_components/polymer/lib/elements/dom-repeat.html"
+/>
+
+<link rel="import" href="../get-users-component/get-users-component.html">
+
+<script src="../../helpers/userDataHelper.js"></script>
+
+<dom-module id="card-wrapper-component">
+  <template>
+    <get-users-component id="getUsersData"></get-users-component>
+    <style>
+      .main__container {
+        background-color: bisque;
+        min-height: 600px;
+        max-height: 900px;
+        scroll-behavior: smooth;
+        overflow: hidden;
+        text-align: center;
+        padding: 10px;
+      }
+      h3 {
+        margin: 0;
+        border-bottom: 1px solid black;
+      }
+
+      .data__cards  {
+          margin-top: 10px;
+          display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      @media screen and (max-width: 680px) {
+        .data__cards {
+            justify-content: center;
+          }
+        }
+    </style>
+    <div class="main__container">
+      <div class="title">
+        <h3>People Book</h3>
+      </div>
+      <div class="data__cards">
+        <template is="dom-repeat" items="[[peoples]]">
+          <card-component data="[[item]]"></card-component>
+        </template>
+      </div>
+    </div>
+  </template>
+  <script>
+
+    class CardWrapperComponent extends Polymer.Element {
+      getUsersComponent = null;
+      constructor() {
+        super();
+        this.addEventListener('users-data', (usersData) => {
+          this.formatResponse(usersData.detail.data);
+        });
+      }
+
+      connectedCallback() {
+        super.connectedCallback();
+        this.getUsersComponent = this.shadowRoot.getElementById('getUsersData');
+        setInterval(() => {
+          this.getUsersComponent.getData();
+        }, 5000);
+      }
+
+      static get is() {
+        return "card-wrapper-component";
+      }
+      static get properties() {
+        return {
+          peoples: {
+            type: Array,
+            value: [
+              { name: "Onix", gender: "male" },
+              { name: "Mango",gender: "male"},
+              { name: "Tobi", gender: "male"},
+              { name: "Dolly", gender: "female"}
+            ]
+          }
+        };
+      }
+
+      formatResponse(rawData) {
+        this.peoples = formatUserData(rawData);
+      }
+    }
+    window.customElements.define(CardWrapperComponent.is, CardWrapperComponent);
+  </script>
+</dom-module>

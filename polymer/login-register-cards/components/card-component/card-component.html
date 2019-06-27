@@ -1,0 +1,104 @@
+<link
+  rel="import"
+  href="../../bower_components/polymer/polymer-element.html"
+/>
+
+<dom-module id="card-component">
+  <template>
+    <style>
+      :root {
+        margin-bottom: 10px;
+      }
+      .card__container {
+        background-color: cornflowerblue;
+        width: 300px;
+        height: 80px;
+        display: flex;
+        flex-direction: row;
+        border-radius: 5px;
+        flex-wrap: nowrap;
+        padding: 5px 7px;
+        margin: 10px;
+      }
+      p {
+        margin: 0;
+      }
+      .image__container {
+        margin-right: 10px;
+        align-items: center;
+        display: flex;
+      }
+      .data__container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+      }
+      img {
+        border-radius: 5px;
+      }
+    </style>
+    <div class="card__container">
+      <div class="image__container">
+        <img width="70" height="70" src="[[image]]" alt="" />
+      </div>
+      <div class="data__container">
+        <div class="name">
+          <p>Name: [[name]]</p>
+        </div>
+        <div class="gender">
+          <p>Gender: [[gender]]</p>
+        </div>
+      </div>
+    </div>
+  </template>
+  <script>
+    class CardComponent extends Polymer.Element {
+      static get is() {
+        return "card-component";
+      }
+      /**
+       * @todo REFERENCIAR PROPIEDADES HERMANAS,CONTROL DE ENVÍO
+      */
+      static get properties() {
+        return {
+          data: {
+            type: Object,
+            value: {
+              name: "defaultName",
+              gender: "male",
+              image: "./assets/default.png"
+            }
+          },
+          name: {
+            type: String,
+            computed: "getName(data)" // como  referenciar a una proiedad hermana
+          },
+          gender: {
+            type: String,
+            computed: "getGender(data)"
+          },
+          image: {
+            type: String,
+            computed: "getProfileImage(data)"
+          }
+        };
+      }
+      getName(data) {
+        return data.name;
+      }
+
+      getGender(data) {
+        return data.gender;
+      }
+
+      getProfileImage(data) {
+        if (data.image) {
+          return data.image;
+        }
+        return "./assets/default.png";
+      }
+    }
+
+    window.customElements.define(CardComponent.is, CardComponent);
+  </script>
+</dom-module>
