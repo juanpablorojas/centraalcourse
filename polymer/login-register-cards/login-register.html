@@ -121,6 +121,17 @@
      */
     class LoginRegister extends Polymer.Element {
 
+      constructor() {
+        super();
+        this.logInEvent = new CustomEvent('logIn', {
+          bubbles: true,
+          composed: true,
+          detail: {
+            logIn: true,
+          }
+        });
+      }
+
       static get is() { return 'login-register'; }
 
       static get properties() {
@@ -162,6 +173,9 @@
         return false;
       }
 
+      logInAction() {
+        this.dispatchEvent(this.logInEvent);
+      }
     }
 
     window.customElements.define(LoginRegister.is, LoginRegister);

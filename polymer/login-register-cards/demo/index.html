@@ -11,9 +11,13 @@
     <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
     <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
     <link rel="import" href="../login-register.html">
+    <link rel="import" href="../components/card-wrapper-component/card-wrapper-component.html">
 
     <custom-style>
       <style is="custom-style" include="demo-pages-shared-styles">
+        .hidden {
+          display: none;
+        }
       </style>
     </custom-style>
   </head>
@@ -21,10 +25,14 @@
     <div class="vertical-section-container centered">
       <h3>Basic login-register demo</h3>
       <demo-snippet>
-        <template>
-          <login-register></login-register>
-        </template>
+          <login-register id="logInRegisterTemplate"></login-register>
+          <card-wrapper-component></card-wrapper-component>
       </demo-snippet>
     </div>
+    <script>
+      document.addEventListener('logIn', (event) => {
+        return 0;
+      });
+    </script>
   </body>
 </html>
