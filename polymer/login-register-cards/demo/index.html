@@ -22,7 +22,7 @@
     </custom-style>
   </head>
   <body>
-    <div class="vertical-section-container centered">
+    <div id="parentContainer" class="vertical-section-container centered">
       <h3>Basic login-register demo</h3>
       <demo-snippet>
           <login-register id="logInRegisterTemplate"></login-register>
@@ -30,7 +30,9 @@
       </demo-snippet>
     </div>
     <script>
-      document.addEventListener('logIn', (event) => {
+      let div =  document.getElementById('parentContainer');
+      console.log(div);
+        div.addEventListener('log-in', (event) => {
         cardWrapperTemplate.classList.toggle('hidden');
         logInRegisterTemplate.classList.toggle('hidden');
       });
